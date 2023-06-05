@@ -1,0 +1,26 @@
+{
+    "index":{
+        "file_name":"index.md",
+        "full_name":"Home page",
+        "short_description":"A description",
+        "time_raw":"0/0/0 00:00 PM/AM",
+        "author":{
+            "name":"JS",
+            "discord":"| __.JS.__ |#4546",
+            "avatar":"https://cdn.discordapp.com/avatars/1083437693347827764/a_2a258874c76ff97376806b88ca94cc5a.webp?size=160",
+            "profile_url":"/team/js"
+        }
+    },
+    "whatever":{
+        "file_name":"wtf.md",
+        "full_name":"Whatever example page",
+        "short_description":"A description",
+        "time_raw":"0/0/0 00:00 PM/AM",
+        "author":{
+            "name":"DzikStar",
+            "discord":"DzikStar#2803",
+            "avatar":"https://cdn.discordapp.com/avatars/928302770849710101/cf47b21040a2f339916fce9f64e90518.webp?size=64",
+            "profle_url":"/team/whatever"
+        }
+    }
+}
