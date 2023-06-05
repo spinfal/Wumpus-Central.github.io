@@ -1,1 +1,149 @@
-Helo World!
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Poppins:wght@500&family=Roboto+Mono&family=Roboto:wght@500&display=swap" rel="stylesheet">
+    <title>Discord docs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <style>
+      body,html{
+        border-top: 3px solid #5964F2;
+        justify-content: center;
+        align-items: center;
+      }
+      .card {
+        background-color: #313338;
+        color: white;
+        font-weight: bold;
+        color-scheme: dark white;
+        font-family: 'Montserrat', sans-serif;
+      }
+      .card-body{
+        text-align:start;
+      }
+ 
+  
+      
+      .button {
+        display: inline-block;
+        padding: 10px 20px;
+        border: none;
+        cursor: pointer;
+        background-color: #5964F2; /* Blurple color */
+        color: #ffffff;
+        text-decoration: none;
+        border-radius: 4px;
+        transition: background-color 0.3s ease;
+      }
+  
+      .button:hover {
+        background-color: #4d55c5; /* Darker shade of blurple on hover */
+        text-decoration: underline;
+      }
+        #articles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px;
+  }
+
+  #articles > * {
+    flex: 0 0 calc(33.33% - 20px);
+    margin: 10px;
+  }
+  .navbar{
+    box-shadow: 0 1px 2px rgba(0, 0, 0, .3);
+    background-color: #2B2D31;
+  }
+  h1{
+    color:white;
+    font-weight: bold;
+  }
+  .wumpus-central{
+    background: linear-gradient(108.63deg, #3F4BD7 37.39%, #6572FF 59.97%, #5865F2 77.65%);
+    -webkit-background-clip: text;
+    font-size: 100px;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    text-fill-color: transparent;
+  }
+  .bg{
+        	background-color:dark;
+        border-radius:10px;
+            width:fit-content;
+            aling-items:center;
+            left:0;
+            right:0;
+            margin:0 auto;
+  }
+       
+    </style>
+  </head>
+  <div class="navbar bg">
+    <div class="flex-1">
+      <a class="btn btn-ghost normal-case text-xl wumpus-central">Wumpus Central</a>
+    </div>
+    <div class="flex-none">
+      <ul class="menu menu-horizontal px-1">
+        <li><a>Home</a></li>
+        <li><a>About us</a></li>
+        <li tabindex="0">
+          <a>
+            Join us
+            <svg class="fill-current" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M7.41,8.58L12,13.17L16.59,8.58L18,10L12,16L6,10L7.41,8.58Z"/></svg>
+          </a>
+          <ul class="p-2 bg-base-100">
+            <li><a>Discord</a></li>
+            <li><a>Twitter</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+  </div>
+<body>
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@2.51.6/dist/full.css" rel="stylesheet" type="text/css" />
+ 
+  <br>
+    <center>
+      <h1 class="text-5xl font-bold wumpus-central">Wumpus Central</h1>
+      <p class="py-6 text-5l" style="color:white;">The best datamining server.</p>
+      <br>
+      <h1 class="text-5xl font-bold">Our articles:</h1>
+  <ul id="articles" class="card-grid"></ul>
+  <script src="  https://cdn.jsdelivr.net/npm/showdown@<version tag>/dist/showdown.min.js" type="module"></script>
+</center>
+  <script>
+    $(document).ready(function() {
+      let repoUrl  = `https://raw.githubusercontent.com/Wumpus-Central/Wumpus-Central.github.io/main/pages.json`
+
+      $.ajax({
+        url: repoUrl,
+        method: 'GET',
+        success: function(data) {
+          var d = JSON.parse(data)
+          Object.keys(d).forEach(e=>{
+            console.log(d[e])
+            document.getElementById('articles').innerHTML += `<div class="card">
+  <figure><img src="https://cdn.discordapp.com/attachments/1101957454847295498/1108814710285008896/image.png" class="card-img"/></figure>
+  <div class="card-body">
+    <h2 class="card-title">${d[e]['full_name']}</h2>
+    <p>${d[e]['short_description']}</p>
+    <div class="card-actions justify-end">
+      <a href="/article.html?article=${e}"class="button">View</a>
+    </div>
+  </div>
+</div>` 
+          })
+        },
+        error: function() {
+          console.log('Error fetching repository files.');
+        }
+      });
+    });
+
+  </script>
+</body>
+</html>
